@@ -1,7 +1,7 @@
 class Download < ApplicationRecord
   belongs_to :song, counter_cache: true
 
-  before_save :update_artist_total_downloads
+  after_create :update_artist_total_downloads
 
   private
 

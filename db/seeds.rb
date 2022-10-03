@@ -1,7 +1,7 @@
 letters = ('a'..'z').to_a
 artists = Artist.all
 
-1.upto(100) do |n|
+1.upto(10) do |n|
   l = letters.sample.upcase
   Artist.create(
     name: "#{l} Artist #{n}",
@@ -9,7 +9,7 @@ artists = Artist.all
   )
 end
 
-1.upto(1000) do |n|
+1.upto(100) do |n|
   artist = artists.sample
   l = letters.sample.upcase
 
@@ -24,9 +24,9 @@ end
 
 songs = Song.all
 
-1.upto(1000) do |n|
+1.upto(100) do |n|
   Download.create(
-    song: songs.sample,
+    song: songs.reload.sample,
     created_at: Time.at(rand * Time.now.to_i),
   )
 end
